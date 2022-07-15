@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook", "CookBook\CookBook.csproj", "{D8DBE3DF-E44A-4BB7-9B09-5CAB839825DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookBook", "CookBook\CookBook.csproj", "{D8DBE3DF-E44A-4BB7-9B09-5CAB839825DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookBook.App", "CookBook.App\CookBook.App.csproj", "{F76C41FC-793E-420A-B53F-1D6A5C66568C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D8DBE3DF-E44A-4BB7-9B09-5CAB839825DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8DBE3DF-E44A-4BB7-9B09-5CAB839825DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8DBE3DF-E44A-4BB7-9B09-5CAB839825DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76C41FC-793E-420A-B53F-1D6A5C66568C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76C41FC-793E-420A-B53F-1D6A5C66568C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76C41FC-793E-420A-B53F-1D6A5C66568C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76C41FC-793E-420A-B53F-1D6A5C66568C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
