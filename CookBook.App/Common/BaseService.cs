@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CookBook.App.Abstract;
-using CookBook.Domain.Entity;
+using CookBook.Domain.Common;
 
 namespace CookBook.App.Common
 {

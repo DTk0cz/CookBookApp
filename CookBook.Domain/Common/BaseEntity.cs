@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CookBook.Domain.Common;
 
-namespace CookBook.Domain.Entity
+namespace CookBook.Domain.Common
 {
     public class BaseEntity : AuditableModel
     {
