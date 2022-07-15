@@ -1,25 +1,19 @@
-﻿using System;
+﻿using CookBook.App.Common;
+using CookBook.Domain.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CookBook
+namespace CookBook.App.Concrete
 {
-    public class MenuActionService
+    public class MenuActionService : BaseService<MenuAction>
     {
-        private List<MenuAction> menuActions = new List<MenuAction>();
-
-        public void AddNewAction(int id, string name, string menuName)
-        {
-            MenuAction menuAction = new MenuAction() { Id = id, Name = name, MenuName = menuName };
-            menuActions.Add(menuAction);
-        }
-
         public List<MenuAction> GetMenuActionsByMenuName(string menuName)
         {
             List<MenuAction> results = new List<MenuAction>();
-            foreach (var menuAction in menuActions)
+            foreach (var menuAction in Recipes)
             {
                 if (menuAction.MenuName == menuName)
                 {
