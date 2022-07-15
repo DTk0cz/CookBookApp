@@ -16,7 +16,19 @@ namespace CookBook.App.Common
         {
             Recipes = new List<T>();
         }
-
+        public int GetNewId()
+        {
+            int lastId;
+            if (Recipes.Any())
+            {
+                lastId = Recipes.OrderBy(p => p.Id).LastOrDefault().Id;
+            }
+            else
+            {
+                lastId = 0;
+            }
+            return lastId;
+        }
         public int AddRecipe(T recipe)
         {
             Recipes.Add(recipe);

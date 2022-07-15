@@ -13,14 +13,7 @@ namespace CookBook.App.Concrete
     {
 
 
-        //public ConsoleKeyInfo AddNewItemView(MenuActionService actionService)
-        //{
-        //    var addNewItemMenu = actionService.GetMenuActionsByMenuName("AddNewRecipeMenu");
-        //    Console.WriteLine("Please select recipe type:");
-        //    for(int i = 0; i < addNewItemMenu.Count; i++)
-        //    {
-        //        Console.WriteLine($"{addNewItemMenu[i].Id}. {addNewItemMenu[i].Name}");
-        //    }
+
 
         //    var operation = Console.ReadKey();
         //    return operation;

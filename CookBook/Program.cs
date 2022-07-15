@@ -1,10 +1,11 @@
 ﻿using CookBook;
 using CookBook.App.Abstract;
 using CookBook.App.Concrete;
+using CookBook.App.Managers;
 using CookBook.Domain.Entity;
 
 MenuActionService actionService = new MenuActionService();
-RecipeService recipeService = new RecipeService();
+RecipeManager recipeManager = new RecipeManager(actionService);
 
 actionService = Initialize(actionService);
 
@@ -29,8 +30,7 @@ while (true)
     switch (operation.KeyChar)
     {
         case '1':
-            var keyInfo = recipeService.AddNewItemView(actionService);
-            var id = recipeService.AddNewItem(keyInfo.KeyChar);
+            var newId = recipeManager.AddNewRecipe();
             break;
         case '2':
             var removeId = recipeService.RemoveRecipeView();
