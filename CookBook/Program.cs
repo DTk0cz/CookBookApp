@@ -1,7 +1,11 @@
 ﻿using CookBook;
+using CookBook.App.Abstract;
+using CookBook.App.Concrete;
+using CookBook.Domain.Entity;
 
 MenuActionService actionService = new MenuActionService();
 RecipeService recipeService = new RecipeService();
+
 actionService = Initialize(actionService);
 
 Console.WriteLine("Welcome to the cookbook app!");
@@ -53,17 +57,3 @@ while (true)
 
 
 
-static MenuActionService Initialize(MenuActionService actionService)
-{
-    actionService.AddNewAction(1, "Add recipe", "Main");
-    actionService.AddNewAction(2, "Remove recipe", "Main");
-    actionService.AddNewAction(3, "Show details", "Main");
-    actionService.AddNewAction(4, "Show all recipes", "Main");
-
-    actionService.AddNewAction(1, "Breakfeast", "AddNewRecipeMenu");
-    actionService.AddNewAction(2, "Dinner", "AddNewRecipeMenu");
-    actionService.AddNewAction(3, "Supper", "AddNewRecipeMenu");
-    
-
-    return actionService;
-}
