@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CookBook.App\CookBook.App.csproj" />
+  </ItemGroup>
+
 </Project>
