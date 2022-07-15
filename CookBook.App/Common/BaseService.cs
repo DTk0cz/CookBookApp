@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CookBook.App.Abstract;
+using CookBook.Domain.Entity;
 
 namespace CookBook.App.Common
 {
-    public class BaseService<T> : IService<T>
+    public class BaseService<T> : IService<T> where T : BaseEntity
     {
         public List<T> Recipes { get; set; }
 
@@ -24,17 +25,22 @@ namespace CookBook.App.Common
 
         public List<T> GetAllRecipes()
         {
-            throw new NotImplementedException();
+            return Recipes;
         }
 
         public void RemoveRecipe(T recipe)
         {
-            throw new NotImplementedException();
+            Recipes.Remove(recipe);
         }
 
         public int UpdateRecipe(T recipe)
         {
-            throw new NotImplementedException();
+            var entity = Recipes.FirstOrDefault(p => p.Id == recipe.Id);
+            if (entity != null)
+            {
+                entity = recipe;
+            }
+            return entity.Id;
         }
     }
 }

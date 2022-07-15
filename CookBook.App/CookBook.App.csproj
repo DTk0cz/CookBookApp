@@ -10,4 +10,8 @@
     <Folder Include="Concrete\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CookBook.Domain\CookBook.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
