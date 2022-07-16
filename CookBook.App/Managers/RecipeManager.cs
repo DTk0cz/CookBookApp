@@ -12,6 +12,7 @@ namespace CookBook.App.Managers
     {
         private readonly MenuActionService _actionService;
         private RecipeService _recipeService;
+        
         public RecipeManager(MenuActionService actionService)
         {
             _recipeService = new RecipeService();
@@ -30,8 +31,8 @@ namespace CookBook.App.Managers
             Int32.TryParse(operation.KeyChar.ToString(), out typeId);
             Console.WriteLine("Please insert recipe name: ");
             var name = Console.ReadLine();
-            var id = _recipeService.GetNewId();
-            Recipe recipe = new Recipe(id+1, name, typeId);
+            var lastId = _recipeService.GetLastId();
+            Recipe recipe = new Recipe(lastId+1, name, typeId);
             _recipeService.AddRecipe(recipe);
 
             return recipe.Id;
@@ -61,7 +62,15 @@ namespace CookBook.App.Managers
 
         public void ShowRecipesByTypeId()
         {
-
+            int typeIdToShow;
+            Console.WriteLine("Please insert TypeId of product you want to check: ");
+            var operation = Console.ReadKey();
+            Int32.TryParse(operation.KeyChar.ToString(), out typeIdToShow);
+            var recipesByTypeId = _recipeService.Recipes.FindAll(p => p.TypeId == typeIdToShow);
+            foreach(var recipe in recipesByTypeId)
+            {
+                Console.WriteLine($"Id: {recipe.Id} Name: {recipe.Name} TypeId: {recipe.TypeId}");
+            }
         }
     }
 }

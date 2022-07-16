@@ -5,9 +5,10 @@ using CookBook.App.Managers;
 using CookBook.Domain.Entity;
 
 MenuActionService actionService = new MenuActionService();
+RecipeService recipeService = new RecipeService();
 RecipeManager recipeManager = new RecipeManager(actionService);
 
-actionService = Initialize(actionService);
+
 
 Console.WriteLine("Welcome to the cookbook app!");
 
@@ -33,16 +34,13 @@ while (true)
             var newId = recipeManager.AddNewRecipe();
             break;
         case '2':
-            var removeId = recipeService.RemoveRecipeView();
-            recipeService.RemoveRecipe(removeId);
+            recipeManager.RemoveRecipe();
             break;
         case '3':
-            var detailId = recipeService.RecipeDetailSelectionView();
-            recipeService.RecipeDetailView(detailId);
+            recipeManager.ShowRecipeDetails();
             break;
         case '4':
-            var typeId = recipeService.RecipeTypeSelectionView();
-            recipeService.RecipesByTypeIdView(typeId);
+            recipeManager.ShowRecipesByTypeId();
             break;
         default:
             Console.WriteLine("Actioned you entered does not exist");

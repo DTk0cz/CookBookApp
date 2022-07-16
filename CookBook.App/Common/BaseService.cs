@@ -16,7 +16,7 @@ namespace CookBook.App.Common
         {
             Recipes = new List<T>();
         }
-        public int GetNewId()
+        public int GetLastId()
         {
             int lastId;
             if (Recipes.Any())
@@ -57,8 +57,8 @@ namespace CookBook.App.Common
 
         public T GetRecipeById(int id)
         {
-            var recipe = Recipes.FirstOrDefault(p => p.Id == id);
-            return recipe;
+            var entity = Recipes.FirstOrDefault(p => p.Id == id);
+            return entity;
 
         }
     }
