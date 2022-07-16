@@ -36,5 +36,32 @@ namespace CookBook.App.Managers
 
             return recipe.Id;
         }
+
+
+        public void RemoveRecipe()
+        {
+            int idToRemove;
+            Console.WriteLine("Please insert an Id of recipe you want to remove: ");
+            var operation = Console.ReadKey();
+            Int32.TryParse(operation.KeyChar.ToString(), out idToRemove);
+            var recipeToRemove = _recipeService.GetRecipeById(idToRemove);
+            _recipeService.RemoveRecipe(recipeToRemove);
+            
+        }
+
+        public void ShowRecipeDetails()
+        {
+            int idToShow;
+            Console.WriteLine("Please insert an Id of recipe you want to check details ");
+            var operation = Console.ReadKey();
+            Int32.TryParse(operation.KeyChar.ToString(), out idToShow);
+            var recipeToShow = _recipeService.GetRecipeById(idToShow);
+            Console.WriteLine($"Id: {recipeToShow.Id} Name: {recipeToShow.Name} TypeId: {recipeToShow.TypeId}");
+        }
+
+        public void ShowRecipesByTypeId()
+        {
+
+        }
     }
 }
