@@ -5,7 +5,6 @@ using CookBook.App.Managers;
 using CookBook.Domain.Entity;
 
 MenuActionService actionService = new MenuActionService();
-RecipeService recipeService = new RecipeService();
 RecipeManager recipeManager = new RecipeManager(actionService);
 
 

@@ -14,6 +14,7 @@ namespace CookBook.Domain.Entity
 
         public Recipe(int id, string name, int typeId)
         {
+            Id = id;
             Name = name;
             TypeId = typeId;
         }

@@ -9,10 +9,13 @@ namespace CookBook.App.Abstract
     public interface IService<T>
     {
         List<T> Recipes { get; set; }
+        int GetLastId();
+        T GetRecipeById(int id);
 
         List<T> GetAllRecipes();
         int AddRecipe(T recipe);
         int UpdateRecipe(T recipe);
         void RemoveRecipe(T recipe);
+        
     }
 }

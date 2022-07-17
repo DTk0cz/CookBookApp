@@ -1,4 +1,5 @@
-﻿using CookBook.App.Concrete;
+﻿using CookBook.App.Abstract;
+using CookBook.App.Concrete;
 using CookBook.Domain.Entity;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,6 @@ namespace CookBook.App.Managers
     {
         private readonly MenuActionService _actionService;
         private RecipeService _recipeService;
-        
         public RecipeManager(MenuActionService actionService)
         {
             _recipeService = new RecipeService();
@@ -34,7 +34,6 @@ namespace CookBook.App.Managers
             var lastId = _recipeService.GetLastId();
             Recipe recipe = new Recipe(lastId+1, name, typeId);
             _recipeService.AddRecipe(recipe);
-
             return recipe.Id;
         }
 
@@ -56,8 +55,14 @@ namespace CookBook.App.Managers
             Console.WriteLine("Please insert an Id of recipe you want to check details ");
             var operation = Console.ReadKey();
             Int32.TryParse(operation.KeyChar.ToString(), out idToShow);
-            var recipeToShow = _recipeService.GetRecipeById(idToShow);
-            Console.WriteLine($"Id: {recipeToShow.Id} Name: {recipeToShow.Name} TypeId: {recipeToShow.TypeId}");
+            foreach(var recipe in _recipeService.GetAllRecipes())
+            {
+                if(recipe.Id == idToShow)
+                {
+                    Console.WriteLine($"Id: {recipe.Id} Name: {recipe.Name} TypeId: {recipe.TypeId}");
+                }
+            }
+
         }
 
         public void ShowRecipesByTypeId()
@@ -66,11 +71,12 @@ namespace CookBook.App.Managers
             Console.WriteLine("Please insert TypeId of product you want to check: ");
             var operation = Console.ReadKey();
             Int32.TryParse(operation.KeyChar.ToString(), out typeIdToShow);
-            var recipesByTypeId = _recipeService.Recipes.FindAll(p => p.TypeId == typeIdToShow);
+            var recipesByTypeId = _recipeService.GetAllRecipes().Where(p => p.TypeId == typeIdToShow);
             foreach(var recipe in recipesByTypeId)
             {
                 Console.WriteLine($"Id: {recipe.Id} Name: {recipe.Name} TypeId: {recipe.TypeId}");
             }
+            
         }
     }
 }
