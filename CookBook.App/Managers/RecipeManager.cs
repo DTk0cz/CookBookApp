@@ -55,13 +55,8 @@ namespace CookBook.App.Managers
             Console.WriteLine("Please insert an Id of recipe you want to check details ");
             var operation = Console.ReadKey();
             Int32.TryParse(operation.KeyChar.ToString(), out idToShow);
-            foreach(var recipe in _recipeService.GetAllRecipes())
-            {
-                if(recipe.Id == idToShow)
-                {
-                    Console.WriteLine($"Id: {recipe.Id} Name: {recipe.Name} TypeId: {recipe.TypeId}");
-                }
-            }
+            var recipeToShow = _recipeService.GetRecipeById(idToShow);
+            Console.WriteLine($"Id: {recipeToShow.Id} Name: {recipeToShow.Name} TypeId: {recipeToShow.TypeId}");
 
         }
 
