@@ -12,8 +12,9 @@ namespace CookBook.App.Managers
     public class RecipeManager
     {
         private readonly MenuActionService _actionService;
-        private RecipeService _recipeService;
-        public RecipeManager(MenuActionService actionService)
+        private IService<Recipe> _recipeService;
+     
+        public RecipeManager(MenuActionService actionService, IService<Recipe> recipeService)
         {
             _recipeService = new RecipeService();
             _actionService = actionService;

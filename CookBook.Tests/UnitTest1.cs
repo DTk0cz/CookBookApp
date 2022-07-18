@@ -10,12 +10,9 @@ namespace CookBook.Tests
         public void Test1()
         {
             //Arrange
-            int a = 5;
-            int b = 3;
             //Act
-            int result = a + b;
             //Assert
-            Assert.Equal(8, result);
+            
 
            
         }
