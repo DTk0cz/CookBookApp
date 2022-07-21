@@ -12,6 +12,11 @@ namespace CookBook.Domain.Entity
         public string Name { get; set; }
         public int TypeId { get; set; }
 
+        public Recipe()
+        {
+
+        }
+
         public Recipe(int id, string name, int typeId)
         {
             Id = id;

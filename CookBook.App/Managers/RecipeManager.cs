@@ -16,7 +16,7 @@ namespace CookBook.App.Managers
      
         public RecipeManager(MenuActionService actionService, IService<Recipe> recipeService)
         {
-            _recipeService = new RecipeService();
+            _recipeService = recipeService;
             _actionService = actionService;
         }
         public int AddNewRecipe()
@@ -73,6 +73,12 @@ namespace CookBook.App.Managers
                 Console.WriteLine($"Id: {recipe.Id} Name: {recipe.Name} TypeId: {recipe.TypeId}");
             }
             
+        }
+
+        public Recipe GetRecipeById(int id)
+        {
+            var recipe = _recipeService.GetRecipeById(id);
+            return recipe;
         }
     }
 }

@@ -9,7 +9,6 @@ RecipeService recipeService = new RecipeService();
 RecipeManager recipeManager = new RecipeManager(actionService, recipeService);
 
 
-
 Console.WriteLine("Welcome to the cookbook app!");
 
 while (true)
